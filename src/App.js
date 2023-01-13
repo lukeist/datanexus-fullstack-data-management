@@ -1,16 +1,31 @@
-import { CssBaseLine, ThemeProvider } from "@mui/material";
-import createTheme from "@mui/material/styles";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "theme";
 import { useSelector } from "react-redux";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Dashboard from "scenes/dashboard";
+import Layout from "scenes/layout";
+import { useMemo } from "react";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return (
     <div className="app">
-      <ThemeProvider theme={theme}>
-        <CssBaseLine />
-      </ThemeProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Routes>
+            {/* every routes in here will have the navbar & sidebar:  */}
+            <Route element={<Layout />}>
+              {/* if we go to the / => we go to /dashboard => we render the <Dashboard/> */}
+              {/* this is to emulate when we sign in => redirect to /dashboard */}
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
     </div>
   );
 }
