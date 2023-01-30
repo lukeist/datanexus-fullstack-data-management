@@ -16,6 +16,7 @@ import {
   MenuItem,
   Button,
   Box,
+  Menu,
 } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -111,14 +112,14 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
               />
             </Button>
-            <MenuIcon
+            <Menu
               anchorEl={anchorEl}
               open={isOpen}
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
               <MenuItem onClick={handleClose}>Log Out</MenuItem>
-            </MenuIcon>
+            </Menu>
           </FlexBetween>
         </FlexBetween>
       </Toolbar>

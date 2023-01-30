@@ -28,7 +28,6 @@ import {
   AdminPanelSettingsOutlined,
   TrendingUpOutlined,
   PieChartOutlined,
-  ChevronRightTwoTone,
 } from "@mui/icons-material";
 
 import FlexBetween from "./FlexBetween";
