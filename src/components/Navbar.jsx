@@ -1,9 +1,10 @@
 import {
-  ArrowDropDownOutlined,
   DarkModeOutlined,
   LightModeOutlined,
+  Menu as MenuIcon,
   Search,
   SettingsOutlined,
+  ArrowDropDownOutlined,
 } from "@mui/icons-material";
 import {
   AppBar,
@@ -11,7 +12,6 @@ import {
   InputBase,
   Toolbar,
   useTheme,
-  Menu as MenuIcon,
   Typography,
   MenuItem,
   Button,
