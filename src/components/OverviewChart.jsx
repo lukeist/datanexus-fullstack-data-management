@@ -58,8 +58,8 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       >
         <h1>Loading...</h1>
         <h2>
-          I'm using a free server to host this Demo so please be patient. Thank
-          you 😊!
+          Please allow for potential delays as I host this demo on a free
+          server. Thank you for your patience. 😊
         </h2>
         <img
           // src="https://media0.giphy.com/media/iiKWBt2Uu4mgLZhS38/giphy.gif?cid=ecf05e472313pw2yyw0ymdhy5zq6nj3leoe44j6d11vepb1w&rid=giphy.gif"
