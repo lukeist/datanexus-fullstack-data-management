@@ -44,18 +44,20 @@ const Transaction = () => {
       field: "products",
       headerName: "# of Produts",
       flex: 0.5,
+      sortable: false,
       renderCell: (params) => params.value.length,
     },
     {
       field: "cost",
       headerName: "Cost",
-      renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+      flex: 1,
+      renderCell: (params) => `$${Number(params.value).toFixed(2)}`, // sort will not be in correct order because Ed's data is strings, thus "it should have been number"
     },
   ];
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
+      <Header title="TRANSACTIONS" subtitle="List of Transactions" />
       <Box
         height="80vh"
         sx={{
@@ -94,12 +96,15 @@ const Transaction = () => {
           pagination
           page={page}
           pageSize={pageSize}
-          paginationMode="server"
+          paginationMode="server" // server side pagination
           sortingMode="server"
           onPageChange={(newPage) => setPage(newPage)}
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           onSortModelChange={(newSortModel) => setSort(...newSortModel)}
-          components={{ Toolbar: DataGridCustomToobar }}
+          components={{
+            // custom toolbar: COLUMNS DENSITY EXPORT
+            Toolbar: DataGridCustomToobar,
+          }}
           componentsProps={{
             toolbar: { searchInput, setSearchInput, setSearch },
           }}

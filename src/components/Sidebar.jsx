@@ -1,4 +1,7 @@
+import FlexBetween from "./FlexBetween";
+import profileImage from "../assets/user.jpg";
 import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Box,
   Divider,
@@ -12,7 +15,6 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-
 import {
   SettingsOutlined,
   ChevronLeft,
@@ -30,9 +32,6 @@ import {
   PieChartOutlined,
 } from "@mui/icons-material";
 
-import FlexBetween from "./FlexBetween";
-import { useLocation, useNavigate } from "react-router-dom";
-import profileImage from "../assets/user.jpg";
 const navItems = [
   {
     text: "Dashboard",
@@ -118,24 +117,27 @@ const Sidebar = ({
           anchor="left"
           sx={{
             width: drawerWidth,
-            "&. MuiDrawer-paper": {
+            "& .MuiDrawer-paper": {
               color: theme.palette.secondary[200],
               backgroundColor: theme.palette.background.alt,
+              // backgroundColor: "red",
+              margin: "0.75rem 0 0.75rem 0.75rem",
+              borderRadius: "9px",
               boxSizing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
+              height: "calc(100vh - 1.5rem)",
             },
           }}
         >
           <Box width="100%">
-            <Box m="1rem 2rem 0 3rem">
+            <Box m="2rem 2rem 1rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold">
-                    ECOMVISION
+                    IOUNICA.COM
                   </Typography>
                 </Box>
-
                 {!isNonMobile && (
                   <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                     <ChevronLeft />
@@ -147,7 +149,7 @@ const Sidebar = ({
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
-                    <Typography key={text} sx={{ m: "2rem 0 1rem 3rem" }}>
+                    <Typography key={text} sx={{ m: "0.75rem 0 0.75rem 3rem" }}>
                       {text}
                     </Typography>
                   );
@@ -169,7 +171,7 @@ const Sidebar = ({
                         color:
                           active === lcText
                             ? theme.palette.primary[600]
-                            : theme.palette.secondary[100],
+                            : theme.palette.secondary[200],
                       }}
                     >
                       <ListItemIcon

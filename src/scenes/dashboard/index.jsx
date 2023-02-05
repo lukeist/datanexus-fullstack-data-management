@@ -54,10 +54,20 @@ const Dashboard = () => {
     },
   ];
 
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "https://people.sc.fsu.edu/~jburkardt/data/csv/hw_25000.csv";
+    link.download = "Cheems";
+    link.setAttribute("download", "");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <Box m="1.5rem 2.5rem">
       <FlexBetween>
-        <Header title="DASHBOARD" subtitle="Welcome to Your Dashboard" />
+        <Header title="DASHBOARD" subtitle="Welcome back, Shelly!" />
         <Box>
           <Button
             sx={{
@@ -67,6 +77,7 @@ const Dashboard = () => {
               fontWeight: "bold",
               padding: "18px 20px",
             }}
+            onClick={handleDownload}
           >
             <DownloadOutlined sx={{ mr: "10px" }} />
             Download Reports
