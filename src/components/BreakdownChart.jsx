@@ -8,12 +8,14 @@ const BreakdownChart = ({ isDashboard = false }) => {
   const { data, isLoading } = useGetSalesQuery();
 
   if (!data || isLoading) return "Loading...";
-
   const colors = [
+    // theme.palette.secondary[500],
+    // theme.palette.secondary[300],
+    // theme.palette.secondary[300],
     theme.palette.secondary[500],
-    theme.palette.secondary[300],
-    theme.palette.secondary[300],
-    theme.palette.secondary[500],
+    theme.palette.greenAccent[500],
+    theme.palette.blueAccent[500],
+    theme.palette.redAccent[500],
   ];
 
   const formattedData = Object.entries(data.salesByCategory).map(

@@ -134,8 +134,16 @@ const Sidebar = ({
             <Box m="2rem 2rem 1rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography variant="h4" fontWeight="bold">
-                    IOUNICA.COM
+                  <Typography
+                    sx={{ fontFamily: "Orbitron" }}
+                    variant="h4"
+                    fontWeight="bold"
+                    className="logo"
+                  >
+                    <b>
+                      D<span>AT</span>ANE<span>X</span>US
+                    </b>
+                    {/* DATANEXUS */}
                   </Typography>
                 </Box>
                 {!isNonMobile && (

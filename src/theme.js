@@ -1,5 +1,59 @@
 // color design tokens export
 export const tokensDark = {
+  // grey: {
+  //   0: "#ffffff", // manually adjusted
+  //   10: "#f6f6f6", // manually adjusted
+  //   50: "#f0f0f0", // manually adjusted
+  //   100: "#e0e0e0",
+  //   200: "#c2c2c2",
+  //   300: "#a3a3a3",
+  //   400: "#858585",
+  //   500: "#666666",
+  //   600: "#525252",
+  //   700: "#3d3d3d",
+  //   800: "#292929",
+  //   900: "#141414",
+  //   1000: "#000000", // manually adjusted
+  // },
+  // primary: {
+  //   // blue
+  //   100: "#d3d4de",
+  //   200: "#a6a9be",
+  //   300: "#7a7f9d",
+  //   400: "#4d547d",
+  //   500: "#21295c",
+  //   600: "#191F45", // manually adjusted
+  //   700: "#141937",
+  //   800: "#0d1025",
+  //   900: "#070812",
+  // },
+  // secondary: {
+  // grey
+  //   100: "#e0e0e0",
+  //   200: "#c2c2c2",
+  //   300: "#a3a3a3",
+  //   400: "#858585",
+  //   500: "#666666",
+  //   600: "#525252",
+  //   700: "#3d3d3d",
+  //   800: "#292929",
+  //   900: "#141414",
+  // },
+
+  secondary: {
+    // yellow
+    50: "#f0f0f0", // manually adjusted
+    100: "#fff6e0",
+    200: "#ffedc2",
+    300: "#ffe3a3",
+    400: "#ffda85",
+    500: "#ffd166",
+    600: "#cca752",
+    700: "#997d3d",
+    800: "#665429",
+    900: "#332a14",
+  },
+
   grey: {
     0: "#ffffff", // manually adjusted
     10: "#f6f6f6", // manually adjusted
@@ -15,30 +69,53 @@ export const tokensDark = {
     900: "#141414",
     1000: "#000000", // manually adjusted
   },
+
   primary: {
-    // blue
-    100: "#d3d4de",
-    200: "#a6a9be",
-    300: "#7a7f9d",
-    400: "#4d547d",
-    500: "#21295c",
-    600: "#191F45", // manually adjusted
-    700: "#141937",
-    800: "#0d1025",
-    900: "#070812",
+    100: "#d0d1d5",
+    200: "#a1a4ab",
+    300: "#727681",
+    400: "#434957",
+    500: "#141b2d",
+    600: "#101624",
+    700: "#0c101b",
+    800: "#080b12",
+    900: "#040509",
   },
-  secondary: {
-    // yellow
-    50: "#f0f0f0", // manually adjusted
-    100: "#fff6e0",
-    200: "#ffedc2",
-    300: "#ffe3a3",
-    400: "#ffda85",
-    500: "#ffd166",
-    600: "#cca752",
-    700: "#997d3d",
-    800: "#665429",
-    900: "#332a14",
+
+  greenAccent: {
+    100: "#dbf5ee",
+    200: "#b7ebde",
+    300: "#94e2cd",
+    400: "#70d8bd",
+    500: "#4cceac",
+    600: "#3da58a",
+    700: "#2e7c67",
+    800: "#1e5245",
+    900: "#0f2922",
+  },
+
+  redAccent: {
+    100: "#f8dcdb",
+    200: "#f1b9b7",
+    300: "#e99592",
+    400: "#e2726e",
+    500: "#db4f4a",
+    600: "#af3f3b",
+    700: "#832f2c",
+    800: "#58201e",
+    900: "#2c100f",
+  },
+
+  blueAccent: {
+    100: "#e1e2fe",
+    200: "#c3c6fd",
+    300: "#a4a9fc",
+    400: "#868dfb",
+    500: "#6870fa",
+    600: "#535ac8",
+    700: "#3e4396",
+    800: "#2a2d64",
+    900: "#151632",
   },
 };
 
@@ -85,6 +162,15 @@ export const themeSettings = (mode) => {
               default: tokensDark.primary[600],
               alt: tokensDark.primary[500],
             },
+            redAccent: {
+              ...tokensDark.redAccent,
+            },
+            blueAccent: {
+              ...tokensDark.blueAccent,
+            },
+            greenAccent: {
+              ...tokensDark.greenAccent,
+            },
           }
         : {
             // palette values for light mode
@@ -105,6 +191,15 @@ export const themeSettings = (mode) => {
             background: {
               default: tokensDark.grey[0],
               alt: tokensDark.grey[50],
+            },
+            redAccent: {
+              ...tokensLight.redAccent,
+            },
+            blueAccent: {
+              ...tokensLight.blueAccent,
+            },
+            greenAccent: {
+              ...tokensLight.greenAccent,
             },
           }),
     },
