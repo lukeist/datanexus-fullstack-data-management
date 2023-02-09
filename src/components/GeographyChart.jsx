@@ -12,41 +12,42 @@ const GeographyChart = ({ isDashboard = false }) => {
         <ResponsiveChoropleth
           data={data}
           theme={
-            isDashboard
-              ? undefined
-              : {
-                  axis: {
-                    domain: {
-                      line: {
-                        stroke: theme.palette.secondary[500],
-                      },
-                    },
-                    legend: {
-                      text: {
-                        fill: theme.palette.secondary[500],
-                      },
-                    },
-                    ticks: {
-                      line: {
-                        stroke: theme.palette.secondary[500],
-                        strokeWidth: 1,
-                      },
-                      text: {
-                        fill: theme.palette.secondary[500],
-                      },
-                    },
+            // isDashboard
+            // ? undefined
+            // :
+            {
+              axis: {
+                domain: {
+                  line: {
+                    stroke: theme.palette.secondary[500],
                   },
-                  legends: {
-                    text: {
-                      fill: theme.palette.secondary[500],
-                    },
+                },
+                legend: {
+                  text: {
+                    fill: theme.palette.secondary[500],
                   },
-                  tooltip: {
-                    container: {
-                      color: theme.palette.grey[500],
-                    },
+                },
+                ticks: {
+                  line: {
+                    stroke: theme.palette.secondary[500],
+                    strokeWidth: 1,
                   },
-                }
+                  text: {
+                    fill: theme.palette.secondary[500],
+                  },
+                },
+              },
+              legends: {
+                text: {
+                  fill: theme.palette.secondary[500],
+                },
+              },
+              tooltip: {
+                container: {
+                  color: theme.palette.neutral[500],
+                },
+              },
+            }
           }
           colors="RdPu"
           features={geoData.features}
@@ -58,10 +59,10 @@ const GeographyChart = ({ isDashboard = false }) => {
           projectionScale={isDashboard ? 50 : 150}
           projectionTranslation={isDashboard ? [0.63, 0.65] : [0.45, 0.6]}
           projectionRotation={[0, 0, 0]}
-          enableGraticule={isDashboard ? false : true}
+          // enableGraticule={isDashboard ? false : true}
           graticuleLineColor="#dddddd"
           borderWidth={0.8}
-          borderColor={theme.palette.grey[500]}
+          borderColor={theme.palette.neutral[500]}
           legends={
             isDashboard
               ? undefined
@@ -76,14 +77,14 @@ const GeographyChart = ({ isDashboard = false }) => {
                     itemWidth: 94,
                     itemHeight: 18,
                     itemDirection: "left-to-right",
-                    itemTextColor: theme.palette.grey[500],
+                    itemTextColor: theme.palette.neutral[500],
                     itemOpacity: 0.75,
                     symbolSize: 18,
                     effects: [
                       {
                         on: "hover",
                         style: {
-                          itemTextColor: theme.palette.grey[500],
+                          itemTextColor: theme.palette.neutral[500],
                           itemOpacity: 1,
                         },
                       },

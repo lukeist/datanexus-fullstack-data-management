@@ -12,8 +12,8 @@ const Geography = () => {
       <Box
         mt="40px"
         height="75vh"
-        border={`1px solid ${theme.palette.secondary[500]}`}
-        borderRadius="4px"
+        // border={`1px solid ${theme.palette.secondary[500]}`}
+        // borderRadius="4px"
       >
         <GeographyChart />
       </Box>

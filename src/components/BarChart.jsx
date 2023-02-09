@@ -11,27 +11,32 @@ const BarChart = ({ isDashboard = false }) => {
         axis: {
           domain: {
             line: {
-              stroke: theme.palette.grey[500],
+              stroke: theme.palette.neutral[500],
             },
           },
           legend: {
             text: {
-              fill: theme.palette.grey[500],
+              fill: theme.palette.neutral[500],
             },
           },
           ticks: {
             line: {
-              stroke: theme.palette.grey[500],
+              stroke: theme.palette.neutral[500],
               strokeWidth: 1,
             },
             text: {
-              fill: theme.palette.grey[500],
+              fill: theme.palette.neutral[500],
             },
           },
         },
         legends: {
           text: {
-            fill: theme.palette.grey[500],
+            fill: theme.palette.neutral[500],
+          },
+        },
+        tooltip: {
+          container: {
+            color: theme.palette.neutral[500],
           },
         },
       }}
