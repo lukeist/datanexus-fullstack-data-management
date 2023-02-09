@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { useGetProductsQuery } from "state/api";
 import Header from "components/Header";
+import Loading from "components/Loading";
 
 const Product = ({
   _id,
@@ -86,6 +87,7 @@ const Product = ({
 
 const Products = () => {
   const { data, isLoading } = useGetProductsQuery();
+  if (!data || isLoading) return <Loading />;
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   return (
     <Box m="1.5rem 2.5rem">
