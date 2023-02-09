@@ -73,18 +73,48 @@ const Dashboard = () => {
 
   // VERSION 4H
   return (
-    <Box m="1.5rem 1.5rem 1.5rem 2rem">
+    // <Box m="1.5rem 1.5rem 1.5rem 2rem">
+    <Box
+      m={isNonMediumScreens ? "1.5rem" : "1.5rem 1rem"}
+      overflow={isNonMediumScreens ? "hidden" : undefined}
+    >
       <FlexBetween>
         <Header title="DASHBOARD" subtitle="Welcome back, Shelly!" />
+        {isNonMediumScreens ? (
+          <Box>
+            <Button
+              sx={{
+                backgroundColor: theme.palette.secondary.light,
+                color: theme.palette.background.alt,
+                fontSize: "14px",
+                fontWeight: "bold",
+                padding: "10px 20px",
+                ":hover": {
+                  backgroundColor: theme.palette.greenAccent[700],
+                  color: theme.palette.secondary[50],
+                  "& .MuiListItemIcon-root": {
+                    color: theme.palette.secondary[50],
+                  },
+                },
+              }}
+              onClick={handleDownload}
+            >
+              <DownloadOutlined sx={{ mr: "10px" }} />
+              Download Reports
+            </Button>
+          </Box>
+        ) : undefined}
+      </FlexBetween>
 
-        <Box>
+      {isNonMediumScreens ? undefined : (
+        <Box m="10px 0" display="flex" justifyContent="flex-end">
           <Button
             sx={{
               backgroundColor: theme.palette.secondary.light,
               color: theme.palette.background.alt,
               fontSize: "14px",
               fontWeight: "bold",
-              padding: "10px 20px",
+              padding: "10px",
               ":hover": {
                 backgroundColor: theme.palette.greenAccent[700],
                 color: theme.palette.secondary[50],
@@ -95,11 +125,10 @@ const Dashboard = () => {
             }}
             onClick={handleDownload}
           >
-            <DownloadOutlined sx={{ mr: "10px" }} />
-            Download Reports
+            <DownloadOutlined />
           </Button>
         </Box>
-      </FlexBetween>
+      )}
 
       {/* GRID & CHARTS */}
       <Box
@@ -107,8 +136,12 @@ const Dashboard = () => {
         gridTemplateColumns="repeat(12, 1fr)"
         // gridAutoRows="140px"
         // gap="20px"
-        gridAutoRows="127px"
+        gridAutoRows="125px"
         gap="10px"
+        mt="10px"
+        sx={{
+          "& > div": { gridColumn: isNonMediumScreens ? undefined : "span 12" },
+        }}
       >
         {/* ROW 1 */}
         <StatBox
@@ -206,6 +239,7 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={theme.palette.background.alt}
           overflow="auto"
+          borderRadius="0.5rem"
         >
           <FlexBetween
             borderBottom={`1.2px solid ${theme.palette.neutral[500]}`}

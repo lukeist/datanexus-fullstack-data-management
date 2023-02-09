@@ -13,6 +13,7 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import {
@@ -120,44 +121,48 @@ const Sidebar = ({
             "& .MuiDrawer-paper": {
               color: theme.palette.secondary[200],
               backgroundColor: theme.palette.background.alt,
-              // backgroundColor: "red",
-              margin: "0.75rem 0 0.75rem 0.75rem",
-              borderRadius: "9px",
+              borderRadius: isNonMobile ? "9px" : "0",
               boxSizing: "border-box",
-              borderWidth: isNonMobile ? 0 : "2px",
-              width: drawerWidth,
-              height: "calc(100vh - 1.5rem)",
+              borderWidth: isNonMobile ? 0 : "3px",
+              height: isNonMobile ? "calc(100vh - 1.5rem)" : "100vh",
+              // width: drawerWidth,
+              margin: isNonMobile ? "0.75rem 0 0.75rem 0.75rem" : "0",
+              width: `calc(${drawerWidth} - 0.75rem)`,
             },
           }}
         >
           <Box width="100%">
-            <Box m="2rem 2rem 1rem 3rem">
-              <FlexBetween color={theme.palette.secondary.main}>
-                <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography
-                    sx={{ fontFamily: "Orbitron" }}
-                    variant="h4"
-                    fontWeight="bold"
-                    className="logo"
-                  >
-                    <b>
-                      D<span>AT</span>ANE<span>X</span>US
-                    </b>
-                    {/* DATANEXUS */}
-                  </Typography>
-                </Box>
-                {!isNonMobile && (
-                  <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-                    <ChevronLeft />
-                  </IconButton>
-                )}
-              </FlexBetween>
+            <Box
+              m="1.5rem 0"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Typography
+                sx={{ fontFamily: "Orbitron" }}
+                variant="h4"
+                fontWeight="bold"
+                className="logo"
+              >
+                <b>
+                  D<span>AT</span>ANE<span>X</span>US
+                </b>
+                {/* DATANEXUS */}
+              </Typography>
+              {!isNonMobile && (
+                <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+                  <ChevronLeft />
+                </IconButton>
+              )}
             </Box>
             <List>
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
-                    <Typography key={text} sx={{ m: "0.75rem 0 0.75rem 3rem" }}>
+                    <Typography
+                      key={text}
+                      sx={{ m: "0.75rem 0 0.75rem 2.5rem" }}
+                    >
                       {text}
                     </Typography>
                   );
@@ -190,7 +195,8 @@ const Sidebar = ({
                     >
                       <ListItemIcon
                         sx={{
-                          ml: "2rem",
+                          // ml: "2rem",
+                          ml: "1.5rem",
                           color:
                             active === lcText
                               ? theme.palette.background.default
@@ -199,7 +205,12 @@ const Sidebar = ({
                       >
                         {icon}
                       </ListItemIcon>
-                      <ListItemText primary={text}>
+                      <ListItemText
+                        primary={text}
+                        sx={{
+                          ml: "-0.5rem",
+                        }}
+                      >
                         {active === lcText && (
                           <ChevronRightOutlined sx={{ ml: "auto" }} />
                         )}
@@ -212,7 +223,7 @@ const Sidebar = ({
           </Box>
           <Box position="absolute" bottom="2rem">
             <Divider />
-            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
+            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 2rem">
               <Box
                 component="img"
                 alt="profile"

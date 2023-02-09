@@ -17,6 +17,7 @@ import {
   Button,
   Box,
   Menu,
+  useMediaQuery,
 } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -27,6 +28,7 @@ import profileImage from "../assets/user.jpg";
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
   const handleClick = (e) => setAnchorEl(e.currentTarget);
@@ -46,17 +48,19 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
           </IconButton>
-          <FlexBetween
-            backgroundColor={theme.palette.background.alt}
-            borderRadius="9px"
-            gap="3rem"
-            p="0.1rem 1.5rem"
-          >
-            <InputBase placeholder="Search..." />
-            <IconButton>
-              <Search />
-            </IconButton>
-          </FlexBetween>
+          {isNonMediumScreens ? (
+            <FlexBetween
+              backgroundColor={theme.palette.background.alt}
+              borderRadius="9px"
+              gap="3rem"
+              p="0.1rem 1.5rem"
+            >
+              <InputBase placeholder="Search..." />{" "}
+              <IconButton>
+                <Search />
+              </IconButton>
+            </FlexBetween>
+          ) : undefined}
         </FlexBetween>
 
         {/* RIGHT SIDE */}
@@ -68,9 +72,11 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               <LightModeOutlined sx={{ fontSize: "25px" }} />
             )}
           </IconButton>
-          <IconButton>
-            <SettingsOutlined sx={{ fontSize: "25px" }} />
-          </IconButton>
+          {isNonMediumScreens ? (
+            <IconButton>
+              <SettingsOutlined sx={{ fontSize: "25px" }} />
+            </IconButton>
+          ) : undefined}
 
           <FlexBetween>
             <Button

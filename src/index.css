@@ -13,10 +13,11 @@ body,
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #7a7f9d;
+  background: transparent;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
+  border-radius: 2px;
   background: #21295c;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -24,6 +25,15 @@ body,
 }
 ::-webkit-scrollbar-track:hover {
   background: #21295c;
+}
+::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 15px;
+}
+
+::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 15px;
 }
 
 .logo {
