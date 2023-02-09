@@ -2,10 +2,13 @@ import { geoData } from "state/geoData";
 import { ResponsiveChoropleth } from "@nivo/geo";
 import { useGetGeoGraphyQuery } from "state/api";
 import { useTheme } from "@emotion/react";
+import Loading from "./Loading";
 
 const GeographyChart = ({ isDashboard = false }) => {
   const theme = useTheme();
-  const { data } = useGetGeoGraphyQuery();
+  const { data, isLoading } = useGetGeoGraphyQuery();
+  if (!data || isLoading) return <Loading isDashboard={isDashboard} />;
+
   return (
     <>
       {data ? (

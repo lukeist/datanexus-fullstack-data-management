@@ -16,9 +16,6 @@ import {
   useMediaQuery,
   IconButton,
 } from "@mui/material";
-import BreakdownChart from "components/BreakdownChart";
-import OverviewChart from "components/OverviewChart";
-import { DataGrid } from "@mui/x-data-grid";
 import { mockTransactions } from "state/mockData";
 import { useGetDashboardQuery } from "state/api";
 import StatBox from "components/StatBox";

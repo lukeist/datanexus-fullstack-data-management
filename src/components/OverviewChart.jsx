@@ -3,6 +3,8 @@ import { useTheme } from "@emotion/react";
 import { useGetSalesQuery } from "state/api";
 import { ResponsiveLine } from "@nivo/line";
 import { flexbox } from "@mui/system";
+import { Box, Typography } from "@mui/material";
+import Loading from "./Loading";
 
 const OverviewChart = ({ isDashboard = false, view }) => {
   const theme = useTheme();
@@ -45,34 +47,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
     return [[totalSalesLine], [totalUnitsLine]];
   }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (!data || isLoading)
-    return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100%",
-        }}
-      >
-        <h1>Loading...</h1>
-        <h2>
-          Please allow for potential delays as I host this demo on a free
-          server.
-          <br />
-          Thank you for your patience. 😊
-        </h2>
-        <img
-          src="https://media0.giphy.com/media/L4ZI0w4waQ2vSkMgU9/giphy.gif?cid=790b761141e25cc9fc2e0a8e01c217013ea801b1c7a45939&rid=giphy.gif"
-          alt="Loading..."
-          style={{
-            height: "8rem",
-            width: "8rem",
-          }}
-        />
-      </div>
-    );
+  if (!data || isLoading) return <Loading />;
 
   return (
     <ResponsiveLine

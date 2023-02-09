@@ -1,16 +1,16 @@
-# DataNexus - Full Stack Admin Dashboard Application
+# DataNexus - Full Stack Data Management Application
 
-Are you looking for a demo of a powerful management app for your fashion business? Look no further!
+Are you looking for a demo of a powerful data management app for your fashion business? Look no further!
 
-Introducing the Full Stack Admin Dashboard Application built using the MERN stack (Mongodb, Express, React, and Node). This app allows administrators to have a comprehensive overview of their business with all the relevant data about their products, customers, and transactions.
+Introducing the Data Management Application built using the MERN stack (Mongodb, Express, React, and Node). This app allows administrators to have a comprehensive overview of their business with all the relevant data about their products, customers, and transactions.
 
 With a sleek and modern design using Material UI, the app is not only functional but visually appealing as well. Check out the demo for yourself: https://datanexus.vercel.app/.
 
 **Link to the management app's demo:** https://datanexus.vercel.app/
-![alt tag](https://github.com/hiluan/hiluan/raw/main/images/hiluan-datanexus-admin-dashboard.gif)
+
+![alt tag](https://github.com/hiluan/hiluan/raw/main/images/hiluan-datanexus-admin-dashboard-v4h.gif)
 
 **Link to the frontend's repo:** https://github.com/hiluan/datanexus-admin-dashboard-frontend
-
 **Link to the backend's repo:** https://github.com/hiluan/datanexus-admin-dashboard-backend
 
 **Features**
@@ -30,6 +30,9 @@ With a sleek and modern design using Material UI, the app is not only functional
 - Entity relationship diagram to organize the backend data
 - Deployment of the application onto Render.com
 - Server-side pagination
+
+  ![alt tag](https://i.postimg.cc/QxJ12CQL/hiluan-datanexus-admin-dashboard-breakdown-piechart.jpg)
+  _Breakdown Pie Chart_
 
 ## How It's Made:
 
@@ -79,7 +82,8 @@ With a sleek and modern design using Material UI, the app is not only functional
 
    The Navbar is built using `react-router-dom` and Material UI components. It utilizes browser routing, wrapped around a theme provider and single layer route. The route is designed with the layout component as its parent, ensuring that the Navbar and Sidebar exist on every page. There are two routes created, one that navigates to the dashboard and one for the dashboard itself. The process involves creating a dashboard component and layout component in the source directory. CSS styling techniques such as Flexbox and CSS shorthands are used to create a visually appealing design. Functions for toggling the Sidebar and switching between dark and light modes have been implemented, along with a search bar and settings button. The Navbar is fully functional when the Sidebar or mode buttons are clicked.
 
-![alt tag](https://i.ibb.co/vZ1gMYy/Nur-Bier-Nav-Cart-1.jpg)
+   ![alt tag](https://i.postimg.cc/QxQJj0ry/hiluan-datanexus-admin-dashboard-mobile-responsive.jpg)
+   _Mobile Responsive with Sidebar_
 
 2. **Navigation with Sidebar**
 
@@ -87,15 +91,17 @@ With a sleek and modern design using Material UI, the app is not only functional
 
    A list component loops through a list of navigation items, creating a component for each one. The navigation items include dashboard, client-facing, products, customers, transactions, geography, sales, overview, daily, monthly, breakdown, management, admin, performance, and more. The list items are either represented with an icon or a title, and hovering and clicking on the items allows for access to different pages.
 
-![alt tag](https://i.ibb.co/TLZzy7N/Nur-Bier-Page-Home.jpg)
-
 3. **Products Page**
 
    The Product Page is created to store and display information about products in a database. The product model includes details such as name, price, description, category, rating, and supply. The product stat model includes data on yearly, monthly, and daily sales. The products component is imported into the main file and uses Material UI components, such as `Box`, `Card`, `Actions`, and `Typography`, along with the `useState()` hook and the `useGetProductsQuery`. A `Header` component is created for reuse on every page and the product page is made responsive using the CSS Grid layout and `sx` property. The product component is mapped through and contains information on the product's ID, name, description, price, rating, category, supply, and stat. It is represented by a card with a background color and foreign radius, set using the theme palette for responsiveness in dark or light mode.
 
+   ![alt tag](https://i.postimg.cc/VvyX8bZw/hiluan-datanexus-admin-dashboard-products.jpg)
+
 4. **Customers Page**
 
    The Customers Page displays information about all customers in a Material UI table component, also known as a data grid. This page is created by adding a route in the `client.js` file and importing a get customers function from the `controllers`. The information is retrieved from the backend through the use of the user model and the try-catch block. The password information is not included in the response to ensure security. The front end then accesses the data from the customers API endpoint using the `useGetCustomersQuery` hook. In the `app.js` file, the customers route is linked to the customers folder and `index.jsx` file. The data and loading information is pulled from the hook and the final result is the display of customer information in a data grid format.
+
+   ![alt tag](https://i.postimg.cc/c4Sfkw8M/hiluan-datanexus-admin-dashboard-customers.jpg)
 
 5. **Transactions Page**
 
@@ -103,9 +109,13 @@ With a sleek and modern design using Material UI, the app is not only functional
 
    **Server side pagination** is used on the Transactions Page because it is more efficient and practical when dealing with a large amount of data. When using client-side pagination, all of the information is sent to the front end at once, which can slow down the process and cost too much. With server-side pagination, only 20 pages of information are sent to the front end at a time, and when the user clicks next, new information is sent from the back end. This reduces the amount of data sent to the front end, making the process faster and more cost-effective. The sorting and filtering are also done on the back end, and the page number is communicated to the back end, making the process even more efficient.
 
+   ![alt tag](https://i.postimg.cc/J0bZ44Sk/hiluan-datanexus-admin-dashboard-geography.jpg)
+
 6. **Geography**
 
    The Geography Page displays information about the location of the users based on their information. The chart shows the number of users from different locations, which is helpful in understanding where the users are located. The information about the country of the users is stored in the user information and there is no need to create a new model for this purpose. A function has been created to format the data in a way that is suitable for the Nivo charts. A package called country-ISO-2-3 has been installed to convert the two-letter country symbol to three-letter country symbol. The function uses the reduce method in JavaScript to add the data to an accumulator object that is then passed along to each iteration.
+
+   ![alt tag](https://i.postimg.cc/MZRyYdXp/hiluan-datanexus-admin-dashboard-transactions.jpg)
 
 7. **Overview Page**
 
@@ -113,23 +123,33 @@ With a sleek and modern design using Material UI, the app is not only functional
 
    `useMemo()` is used to optimize the performance of the page. It allows for the calculation or data processing of the line chart, transaction table, and pie chart to only occur when there is a change in the input data, rather than on every render. This helps to prevent unnecessary re-renders and improves the overall performance and efficiency of the page.
 
+   ![alt tag](https://i.postimg.cc/tTnFwz5D/hiluan-datanexus-admin-dashboard-overview.jpg)
+
 8. **Daily Page**
 
    The Daily Page is a component in a web application that displays sales information on a daily basis. It uses the `useGetSalesQuery` to retrieve data from an API endpoint and the `react-date-picker` library to allow users to select a range of dates for which they want to see the sales information. The component is created in a new folder called "daily" and the file is named `index.jsx` The component uses `useState()` to keep track of the start and end dates, and the data from the API is massaged and formatted for display in a chart using `useMemo()`. The component is not used in the Dashboard Page, so it is created within the "scenes" folder and not in the "components" folder. The `react-date-picker` library requires the import of its CSS, which is also included in the component.
 
    `useMemo()` is used here to optimize performance by avoiding unnecessary re-renders of the component. It is used in conjunction with the daily chart data, which is passed as a prop to the component. By using `useMemo()`, the component will only re-render when the daily chart data changes, rather than on every update of the component. This optimization helps to improve the performance and overall user experience of the application.
+   ![alt tag](https://i.postimg.cc/nhVBpx2X/hiluan-datanexus-admin-dashboard-dailysales.jpg)
 
 9. **Monthly Page**
 
    The Monthly Page is a variation of the Daily Page in a sales dashboard. The Monthly Page displays the total sales and total units sold for each month. The range information from the Daily Page is not needed for the Monthly Page and is removed. The format of the date is kept the same, with the date being changed to the month. The monthly sales information is displayed in a line chart, but can also be adjusted to display in a non-curved chart. The information displayed in the Monthly Page is cached using the Redux Toolkit query, meaning that the API call to retrieve the data is only made once, saving time and resources.
 
+   ![alt tag](https://i.postimg.cc/YCXgSPDb/hiluan-datanexus-admin-dashboard-monthlysales.jpg)
+
 10. **Breakdown Page**
 
     The Breakdown Page is a section in the dashboard that shows the sales breakdown by categories. The breakdown chart is a pie chart that displays the information split into categories. The chart information is displayed in the middle to show the total amount of sales. The breakdown chart is created as a separate component in the `components` folder called `BreakdownChart.jsx`. The chart is created using the Nivo library and the chart data is formatted as an array of objects with ID, label, value, and color. The chart displays the information in a pie chart format for easy visualization.
 
+    ![alt tag](https://i.postimg.cc/6QyZ4hDw/hiluan-datanexus-admin-dashboard-breakdown-barchart.jpg)
+    ![alt tag](https://i.postimg.cc/RFtnXZSD/hiluan-datanexus-admin-dashboard-breakdown-linechart.jpg)
+
 11. **Admin Page**
 
     The Admin Page is a data grid table that displays information about the administrators of a particular user. The information is obtained by making a `GET` call to the server and calling the `getAdmins` function from the `management.js` file in the `controllers` folder. The data is obtained by using Mongoose to find the users with the role of admin and selecting all the information except for the password. The `GET` call is performed by importing the `useGetAdminsQuery` from the API and then using it to fetch the data. The data is then displayed in a data grid using MUI-X Data Grid.
+
+    ![alt tag](https://i.postimg.cc/4ybHR2hv/hiluan-datanexus-admin-dashboard-admins.jpg)
 
 12. **Performance Page**
 
@@ -137,15 +157,17 @@ With a sleek and modern design using Material UI, the app is not only functional
 
     `Aggregate` calls are similar to `JOIN` in SQL and they allow you to combine and aggregate information from multiple database tables. The get user performance function uses the `user.aggregate` function and the aggregation pipeline to retrieve the performance information of the user with the specific ID passed in from the front end through the query params.
 
+    ![alt tag](https://i.postimg.cc/y6FZRxrJ/hiluan-datanexus-admin-dashboard-performance.jpg)
+
 13. **Dashboard Page**
 
     The Dashboard Page displays various statistics and information about the website in a visually appealing way. This information is obtained from the server by making an API call to a specific endpoint, which retrieves data from data tables such as the `OverallStat` and `Transactions` tables. The information is then returned to the front-end in a JSON format for the Dashboard Page to display. The Dashboard Page displays the total number of customers, the yearly total sold units and sales, the monthly and today's stats, and the latest 50 transactions. The revenue and sales by category information are displayed using the line chart and pie chart respectively. The stat boxes in the Dashboard Page are created using a new component called stat box, which uses Material UI's box, typography, and use theme, as well as Flex between as a style component. The stat boxes display information such as the total customers, sales today, monthly sales, yearly sales, and traffic.
 
+    ![alt tag](https://github.com/hiluan/hiluan/raw/main/images/hiluan-datanexus-admin-dashboard-v4h.gif)
+
 14. **Deployment**
 
     The deployment process involves hosting the backend API on Render.com and frontend on Vercel.app. It is important to ensure that the local environment variables are not pushed to the server by creating a `.gitignore` file and ignoring certain files such as `/node_modules` and `.env`. The code is then pushed to a GitHub repository and the deployment process can begin.
-
-![alt tag](https://i.ibb.co/dGcZJMx/Nur-Bier-Page-Product-Detail.jpg)
 
 ## Optimizations
 
@@ -171,7 +193,7 @@ Overall, these optimizations make this full stack admin dashboard application a 
 
 ## Other Examples:
 
-Take a look at these couple of examples that I have in my portfolio:
+Take a look at these examples that I have in my portfolio:
 
 **nurbier.vercel.app - Fullstack Ecommerce WebApp** https://github.com/hiluan/nurbier-ecommerce-webapp-frontend
 

@@ -2,12 +2,12 @@ import React from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { Box, Typography, useTheme } from "@mui/material";
 import { useGetSalesQuery } from "state/api";
+import Loading from "./Loading";
 
 const BreakdownChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery();
-
-  if (!data || isLoading) return "Loading...";
+  if (!data || isLoading) return <Loading />;
   const colors = [
     // theme.palette.secondary[500],
     // theme.palette.secondary[300],
