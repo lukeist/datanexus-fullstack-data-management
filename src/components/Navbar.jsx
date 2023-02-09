@@ -104,7 +104,8 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                   fontSize="0.7rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  {user.occupation}
+                  {/* {user.occupation} */}
+                  Regional Manager
                 </Typography>
               </Box>
               <ArrowDropDownOutlined

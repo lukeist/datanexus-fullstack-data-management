@@ -9,15 +9,18 @@ body,
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
   background: #7a7f9d;
 }
 /* Handle */
-::-webkit-slider-thumb {
+::-webkit-scrollbar-thumb {
   background: #21295c;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6870fa;
 }
 ::-webkit-scrollbar-track:hover {
   background: #21295c;

@@ -28,7 +28,6 @@ import ProgressCircle from "components/ProgressCircle";
 import GeographyChart from "components/GeographyChart";
 
 const Dashboard = () => {
-  console.log(mockTransactions[0].user);
   const theme = useTheme();
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   const { data, isLoading } = useGetDashboardQuery();
@@ -74,7 +73,7 @@ const Dashboard = () => {
 
   // VERSION 4H
   return (
-    <Box m="1.5rem 2rem">
+    <Box m="1.5rem 1.5rem 1.5rem 2rem">
       <FlexBetween>
         <Header title="DASHBOARD" subtitle="Welcome back, Shelly!" />
 
@@ -86,6 +85,13 @@ const Dashboard = () => {
               fontSize: "14px",
               fontWeight: "bold",
               padding: "10px 20px",
+              ":hover": {
+                backgroundColor: theme.palette.greenAccent[700],
+                color: theme.palette.secondary[50],
+                "& .MuiListItemIcon-root": {
+                  color: theme.palette.secondary[50],
+                },
+              },
             }}
             onClick={handleDownload}
           >
@@ -99,8 +105,10 @@ const Dashboard = () => {
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="120px"
-        gap="15px"
+        // gridAutoRows="140px"
+        // gap="20px"
+        gridAutoRows="127px"
+        gap="10px"
       >
         {/* ROW 1 */}
         <StatBox
@@ -157,19 +165,20 @@ const Dashboard = () => {
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={theme.palette.background.alt}
+          borderRadius="0.5rem"
         >
-          <FlexBetween mt="25px" p="0 30px">
+          <FlexBetween mt="20px" p="0 30px">
             <Box>
               <Typography
                 variant="h5"
                 fontWeight="600"
-                color={theme.palette.grey[100]}
+                color={theme.palette.neutral[100]}
               >
                 Revenue Generated
               </Typography>
               <Typography
                 variant="h3"
-                fontWeight="500"
+                fontWeight="bold"
                 color={theme.palette.greenAccent[500]}
               >
                 $14,535,178
@@ -186,7 +195,7 @@ const Dashboard = () => {
               </IconButton>
             </Box>
           </FlexBetween>
-          <Box height="230px" mt="-20px">
+          <Box height="230px" mt="-30px">
             <LineChart isDashboard="true" />
           </Box>
         </Box>
@@ -199,12 +208,12 @@ const Dashboard = () => {
           overflow="auto"
         >
           <FlexBetween
-            borderBottom={`1.5px solid ${theme.palette.primary.main}`}
-            color={theme.palette.grey[100]}
-            p="15px"
+            borderBottom={`1.2px solid ${theme.palette.neutral[500]}`}
+            // color={theme.palette.neutral[100]}
+            p="20px 15px"
           >
             <Typography
-              color={theme.palette.grey[100]}
+              color={theme.palette.neutral[100]}
               variant="h5"
               fontWeight="600"
             >
@@ -214,8 +223,8 @@ const Dashboard = () => {
           {mockTransactions.map((transaction, i) => (
             <FlexBetween
               key={`${transaction.txId}-${i}`}
-              borderBottom={`1.5px solid ${theme.palette.primary.main}`}
-              color={theme.palette.grey[100]}
+              borderBottom={`1.2px solid ${theme.palette.neutral[600]}`}
+              // color={theme.palette.neutral[500]}
               p="15px"
             >
               <Box>
@@ -226,12 +235,13 @@ const Dashboard = () => {
                 >
                   {transaction.txId}
                 </Typography>
-                <Typography color={theme.palette.grey[100]}>
+                <Typography color={theme.palette.neutral[100]}>
                   {transaction.user}
                 </Typography>
               </Box>
-              <Box color={theme.palette.grey[100]}>{transaction.date}</Box>
+              <Box color={theme.palette.neutral[100]}>{transaction.date}</Box>
               <Box
+                color={theme.palette.neutral[900]}
                 backgroundColor={theme.palette.greenAccent[500]}
                 p="5px 10px"
                 borderRadius="4px"
@@ -247,16 +257,21 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={theme.palette.background.alt}
-          p="30px"
+          p="20px 30px"
+          borderRadius="0.5rem"
         >
-          <Typography variant="h5" fontWeight="600">
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            color={theme.palette.neutral[100]}
+          >
             Campaign
           </Typography>
           <Box
             display="flex"
             flexDirection="column"
             alignItems="center"
-            mt="25px"
+            mt="15px"
           >
             <ProgressCircle size="125" />
             <Typography
@@ -274,11 +289,13 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={theme.palette.background.alt}
+          borderRadius="0.5rem"
         >
           <Typography
             variant="h5"
             fontWeight="600"
-            sx={{ p: "30px 30px 0 30px" }}
+            sx={{ p: "20px 30px 0 30px" }}
+            color={theme.palette.neutral[100]}
           >
             Sales Quantity
           </Typography>
@@ -290,12 +307,18 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={theme.palette.background.alt}
-          p="30px"
+          p="20px 30px"
+          borderRadius="0.5rem"
         >
-          <Typography variant="h5" fontWeight="600" sx={{ mb: "15px" }}>
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ mb: "15px" }}
+            color={theme.palette.neutral[100]}
+          >
             Geography Based Traffic
           </Typography>
-          <Box height="200px" mt="20px">
+          <Box height="190px" mt="0px">
             <GeographyChart isDashboard={true} />
           </Box>
         </Box>

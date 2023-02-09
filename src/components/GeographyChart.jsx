@@ -55,7 +55,7 @@ const GeographyChart = ({ isDashboard = false }) => {
           unknownColor="#666666"
           label="properties.name"
           valueFormat=".2s"
-          projectionScale={isDashboard ? 60 : 150}
+          projectionScale={isDashboard ? 50 : 150}
           projectionTranslation={isDashboard ? [0.63, 0.65] : [0.45, 0.6]}
           projectionRotation={[0, 0, 0]}
           enableGraticule={isDashboard ? false : true}

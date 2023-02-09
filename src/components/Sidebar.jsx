@@ -174,12 +174,18 @@ const Sidebar = ({
                       sx={{
                         backgroundColor:
                           active === lcText
-                            ? theme.palette.secondary[300]
+                            ? theme.palette.secondary[200]
                             : "transparent",
                         color:
                           active === lcText
-                            ? theme.palette.primary[600]
-                            : theme.palette.secondary[200],
+                            ? theme.palette.background.default
+                            : theme.palette.secondary[50],
+                        ":hover": {
+                          color: theme.palette.secondary[50],
+                          "& .MuiListItemIcon-root": {
+                            color: theme.palette.secondary[50],
+                          },
+                        },
                       }}
                     >
                       <ListItemIcon
@@ -187,8 +193,8 @@ const Sidebar = ({
                           ml: "2rem",
                           color:
                             active === lcText
-                              ? theme.palette.primary[600]
-                              : theme.palette.secondary[200],
+                              ? theme.palette.background.default
+                              : theme.palette.secondary[50],
                         }}
                       >
                         {icon}
@@ -228,7 +234,8 @@ const Sidebar = ({
                   fontSize="0.8rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  {user.occupation}
+                  {/* {user.occupation} */}
+                  R. Manager
                 </Typography>
               </Box>
               <SettingsOutlined
